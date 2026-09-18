@@ -151,7 +151,11 @@ def extract_decision(note: openreview.Note) -> str:
         lower = venue.lower()
         if "reject" in lower:
             return "Reject"
-        if "accept" in lower or "findings" in lower:
+        if "findings" in lower:
+            return "Findings"
+        if "main conference" in lower:
+            return "Main Conference"
+        if "accept" in lower:
             return "Accept"
 
     return "Unknown"
